@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Euclidean distance in kms from origin point</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 600px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "AlphaGIS \u00d6U", "label": "AlphaGIS \u00d6U", "shape": "dot", "size": 10}, {"id": "Kopli \u00d6U", "label": "Kopli \u00d6U", "shape": "dot", "size": 10}, {"id": " Tehas \u00d6U", "label": " Tehas \u00d6U", "shape": "dot", "size": 10}, {"id": "Stroomi \u00d6U", "label": "Stroomi \u00d6U", "shape": "dot", "size": 10}, {"id": "Hippo \u00d6U", "label": "Hippo \u00d6U", "shape": "dot", "size": 10}, {"id": "L\u00f6wen \u00d6U", "label": "L\u00f6wen \u00d6U", "shape": "dot", "size": 10}, {"id": "J\u00e4rvi \u00d6U", "label": "J\u00e4rvi \u00d6U", "shape": "dot", "size": 10}, {"id": "Nurme \u00d6U", "label": "Nurme \u00d6U", "shape": "dot", "size": 10}, {"id": "Kose \u00d6U", "label": "Kose \u00d6U", "shape": "dot", "size": 10}, {"id": "Lume \u00d6U", "label": "Lume \u00d6U", "shape": "dot", "size": 10}, {"id": "Waldi \u00d6U", "label": "Waldi \u00d6U", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "AlphaGIS \u00d6U", "label": 6.47, "to": "Kopli \u00d6U", "weight": 6.47}, {"from": "AlphaGIS \u00d6U", "label": 6.18, "to": " Tehas \u00d6U", "weight": 6.18}, {"from": "AlphaGIS \u00d6U", "label": 4.75, "to": "Stroomi \u00d6U", "weight": 4.75}, {"from": "AlphaGIS \u00d6U", "label": 3.13, "to": "Hippo \u00d6U", "weight": 3.13}, {"from": "AlphaGIS \u00d6U", "label": 3.15, "to": "L\u00f6wen \u00d6U", "weight": 3.15}, {"from": "AlphaGIS \u00d6U", "label": 10.86, "to": "J\u00e4rvi \u00d6U", "weight": 10.86}, {"from": "AlphaGIS \u00d6U", "label": 13.87, "to": "Nurme \u00d6U", "weight": 13.87}, {"from": "AlphaGIS \u00d6U", "label": 35.43, "to": "Kose \u00d6U", "weight": 35.43}, {"from": "AlphaGIS \u00d6U", "label": 11.57, "to": "Lume \u00d6U", "weight": 11.57}, {"from": "AlphaGIS \u00d6U", "label": 2.24, "to": "Waldi \u00d6U", "weight": 2.24}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"edges": {"arrows": {"to": {"enabled": true}}, "color": {"inherit": true}, "smooth": false}, "nodes": {"color": {"border": "rgba(233,104,113,1)", "background": "rgba(151,194,252,1)", "highlight": {"border": "rgba(233,93,98,1)"}}}, "physics": {"repulsion": {"springLength": 120}, "minVelocity": 0.75, "solver": "repulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
